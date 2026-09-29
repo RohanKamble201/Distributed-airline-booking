@@ -1,0 +1,45 @@
+services:
+
+  queue1:
+    build: .
+    container_name: queue1
+    environment:
+      NODE_ID: "1"
+      NODE_NAME: "queue1"
+      ALGORITHM: "${ALGORITHM:-BULLY}"
+    networks:
+      - airline_network
+
+  queue2:
+    build: .
+    container_name: queue2
+    environment:
+      NODE_ID: "2"
+      NODE_NAME: "queue2"
+      ALGORITHM: "${ALGORITHM:-BULLY}"
+    networks:
+      - airline_network
+
+  queue3:
+    build: .
+    container_name: queue3
+    environment:
+      NODE_ID: "3"
+      NODE_NAME: "queue3"
+      ALGORITHM: "${ALGORITHM:-BULLY}"
+    networks:
+      - airline_network
+
+  queue4:
+    build: .
+    container_name: queue4
+    environment:
+      NODE_ID: "4"
+      NODE_NAME: "queue4"
+      ALGORITHM: "${ALGORITHM:-BULLY}"
+    networks:
+      - airline_network
+
+networks:
+  airline_network:
+    driver: bridge
